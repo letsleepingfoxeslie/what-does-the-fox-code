@@ -12,7 +12,7 @@ Will edit later. Not sure how to credit people, but w/e, we'll figure out as we 
 - [x] 1. [Timed Math](001-timed-math) -> [Tech With Tim](https://youtu.be/NpmFbWO6HPU?t=8104)
     - Tinkering a bit with `random` and `time` packages.
 - [x] 2. [Ten Fox Fingers](002-ten-fox-fingers) -> [Tech With Tim](https://youtu.be/NpmFbWO6HPU?t=15189)
-    - Yes, it's a stupid pun on "10fastfingers.com" :fox:
+    - Yes, it's a stupid pun on "10fastfingers.com" :fox_face:
     - In hindsight, this should have been named **typefox**...
         - Name seems to be trademarked. Funny.
     - Tinkering with `curses` and some formatting stuff.

@@ -56,9 +56,12 @@ def wpm_test(stdscr):
             continue
         
         # Breaks loop with the ESC key
-        if ord(key) == 27:
-            break
-    
+        try:
+            if ord(key) == 27:
+                break
+        except:
+            continue
+
         # Handles proper backspace?
         if key in ("KEY_BACKSPACE", '\b', '\x7f'):
             if len(current_text) > 0:
@@ -80,9 +83,15 @@ def main(stdscr):
     while True:
         wpm_test(stdscr)
         stdscr.addstr(2, 0, "Done? Press whatever to continue... I guess")
-        key = stdscr.getkey()
-
-        if ord(key) == 27:
+        try:
+            key = stdscr.getkey()
+        except:
             break
+
+        try:
+            if ord(key) == 27:
+                break
+        except:
+            continue
 
 wrapper(main)
