@@ -1,6 +1,7 @@
 import curses
 from curses import wrapper
 import time
+import random
 
 def start_screen(stdscr): 
     stdscr.clear()
@@ -8,14 +9,16 @@ def start_screen(stdscr):
     stdscr.addstr("\nPress any key to begin?")
     stdscr.refresh()
 
-def calculate_wpm():
-    pass
+def load_quote() -> str:
+    with open("quotes.txt", "r", encoding = "UTF-8") as f:
+        lines = f.readlines()
+        return random.choice(lines).strip()
 
 def display_text(stdscr, target_text: str, current_text: list[str], time_elapsed: float, wpm: int = 0):
 
     stdscr.addstr(target_text)
-    stdscr.addstr(1, 0, f"WPM: {wpm}")
-    stdscr.addstr(1, 12, f"Time: {time_elapsed:.3f}s")
+    stdscr.addstr(10, 0, f"WPM: {wpm}")
+    stdscr.addstr(10, 12, f"Time: {time_elapsed:.3f}s")
 
     for index, char in enumerate(current_text):
 
@@ -28,7 +31,8 @@ def display_text(stdscr, target_text: str, current_text: list[str], time_elapsed
         stdscr.addstr(0, index, char, color)
 
 def wpm_test(stdscr):
-    target_text: str = "lorem ipsum dolor sit amet, consectetur adipiscing elit"
+    # target_text: str = "lorem ipsum dolor sit amet, consectetur adipiscing elit"
+    target_text:str = load_quote()
     current_text: list[str] = list()
 
     wpm: float = 0

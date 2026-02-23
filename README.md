@@ -16,4 +16,4 @@ Will edit later. Not sure how to credit people, but w/e, we'll figure out as we 
     - In hindsight, this should have been named **typefox**...
         - Name seems to be trademarked. Funny.
     - Tinkering with `curses` and some formatting stuff.
-    - [ ] Some refactoring and personal additions left to make.
+    - [x] Some personal additions left to make.
