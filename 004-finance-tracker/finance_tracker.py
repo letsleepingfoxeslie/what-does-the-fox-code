@@ -1,10 +1,12 @@
 import pandas as pd
 import csv
 from datetime import datetime
+from data_entry import get_amount, get_category, get_date, get_description
 
 class CSV:
-    CSV_FILE = r"004-finance-tracker/finance_data.csv"
-    COLUMNS = ["date", "amount", "category", "description"]
+    CSV_FILE: str = r"004-finance-tracker/finance_data.csv"
+    COLUMNS: list[str] = ["date", "amount", "category", "description"]
+    DATE_FORMAT: str = "%d-%m-%Y"
 
     def __init__(self):
         pass
@@ -19,7 +21,9 @@ class CSV:
 
     @classmethod
     def add_entry(cls, date, amount, category, description):
-        new_entry = { 
+
+        # Might make a class for this specifically
+        new_entry: dict = { 
             "date": date,
             "amount": amount,
             "category": category,
@@ -32,6 +36,47 @@ class CSV:
             writer.writerow(new_entry)
         print("Entry added successfully")
 
+    @classmethod
+    def get_transactions(cls, start_date, end_date):
+        df: pd.DataFrame = pd.read_csv(cls.CSV_FILE)
+        df["date"] = pd.to_datetime(df["date"], format = CSV.DATE_FORMAT)
 
-CSV.initialize_csv()
-CSV.add_entry("20-02-2026", 262.15, "Income", "Salary")
+        # It will be a string, so we have to convert to a datetime
+        start_date: datetime = datetime.strptime(start_date, CSV.DATE_FORMAT)
+        end_date: datetime = datetime.strptime(end_date, CSV.DATE_FORMAT)
+
+        # Filters between start_date and end_date
+        mask = (df["date"] >= start_date) & (df["date"] <= end_date)
+        
+        # Matches everything in out dataframe where indexes of mask match
+        filtered_dataframe: pd.DataFrame = df.loc[mask]
+
+        if filtered_dataframe.empty:
+            print("No transactions found in the given data range!")
+        else:
+            print(f"Transactions from {start_date.strftime(CSV.DATE_FORMAT)} to {end_date.strftime(CSV.DATE_FORMAT)}: ")
+            print(filtered_dataframe.to_string(index = False, formatters = { "date": lambda x: x.strftime(CSV.DATE_FORMAT)}))
+
+
+        # There's a condition to check against. Syntax is messy like the future
+        total_income = filtered_dataframe[filtered_dataframe["category"] == "Income"]["amount"].sum()
+        total_expenses = filtered_dataframe[filtered_dataframe["category"] == "Expense"]["amount"].sum()
+        print("\nSummary: ")
+        print(f"Total income: +${total_income:.2f}")
+        print(f"Total expenses: -${total_expenses:.2f}")
+        print(f"Net savings: ${(total_income - total_expenses):.2f}")
+
+        # TODO: for later!
+        return filtered_dataframe
+
+def prompt_entry():
+    CSV.initialize_csv()
+    date = get_date("Enter the date (format: dd-mm-yyyy) or press [ENTER] for today's date: ", allow_default = True)
+    amount = get_amount()
+    category = get_category()
+    description = get_description()
+
+    CSV.add_entry(date, amount, category, description)
+
+CSV.get_transactions("01-01-2020", "01-01-2027")
+# CSV.add_entry("20-02-2026", 262.15, "Income", "Salary")
