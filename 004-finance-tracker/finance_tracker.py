@@ -22,7 +22,7 @@ class CSV:
     @classmethod
     def add_entry(cls, date, amount, category, description):
 
-        # Might make a class for this specifically
+        # Might make a class for this specifically?
         new_entry: dict = { 
             "date": date,
             "amount": amount,
@@ -78,5 +78,30 @@ def prompt_entry():
 
     CSV.add_entry(date, amount, category, description)
 
-CSV.get_transactions("01-01-2020", "01-01-2027")
+def main():
+    while True:
+        print("[1] Add a new transaction")
+        print("[2] View transactions and summary within a date range")
+        print("[3] Exit")
+        choice: str = input("Enter your choice: ")
+
+        match choice:
+            case "1":
+                prompt_entry()
+            case "2":
+                start_date: str = get_date("Enter the start date (dd-mm-yyyy): ")
+                end_date: str = get_date("Enter the end date (dd-mm-yyyy) or [ENTER] for today: ", allow_default = True)
+                df: pd.DataFrame = CSV.get_transactions(start_date, end_date)
+            case "3":
+                print("Exiting!")
+                exit()
+            case _:
+                print("Invalid choice")
+                continue
+
+
+if __name__ == "__main__":
+    main()
+
+# CSV.get_transactions("01-01-2020", "01-01-2027")
 # CSV.add_entry("20-02-2026", 262.15, "Income", "Salary")
