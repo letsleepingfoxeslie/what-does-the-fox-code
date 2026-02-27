@@ -8,11 +8,8 @@ class CSV:
     COLUMNS: list[str] = ["date", "amount", "category", "description"]
     DATE_FORMAT: str = "%d-%m-%Y"
 
-    def __init__(self):
-        pass
-
     @classmethod
-    def initialize_csv(cls):
+    def initialize_csv(cls) -> None:
         try:
             pd.read_csv(cls.CSV_FILE)
         except FileNotFoundError:
@@ -20,7 +17,7 @@ class CSV:
             df.to_csv(cls.CSV_FILE, index = False)
 
     @classmethod
-    def add_entry(cls, date, amount, category, description):
+    def add_entry(cls, date, amount, category, description) -> None:
 
         # Might make a class for this specifically?
         new_entry: dict = { 
@@ -37,7 +34,7 @@ class CSV:
         print("Entry added successfully")
 
     @classmethod
-    def get_transactions(cls, start_date, end_date):
+    def get_transactions(cls, start_date, end_date) -> None | pd.DataFrame:
         df: pd.DataFrame = pd.read_csv(cls.CSV_FILE)
         df["date"] = pd.to_datetime(df["date"], format = CSV.DATE_FORMAT)
 
@@ -69,7 +66,7 @@ class CSV:
         # TODO: for later!
         return filtered_dataframe
 
-def prompt_entry():
+def prompt_entry() -> None:
     CSV.initialize_csv()
     date = get_date("Enter the date (format: dd-mm-yyyy) or press [ENTER] for today's date: ", allow_default = True)
     amount = get_amount()
