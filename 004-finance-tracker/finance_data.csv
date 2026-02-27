@@ -1,4 +1,81 @@
 date,amount,category,description
-20-02-2026,262.15,Income,Salary
-26-02-2026,95.0,Expense,Market
+01-02-2026,850.00,Expense,Rent
+01-02-2026,262.15,Income,Weekly Salary
+01-02-2026,12.50,Expense,Avocado Toast
+02-02-2026,4.99,Expense,OnlyMechs Subscription
+02-02-2026,3.50,Expense,Vending Machine Chips
+03-02-2026,32.10,Expense,Grocery Run
+03-02-2026,15.00,Expense,Discord Nitro
+04-02-2026,6.00,Expense,Bus Pass
+04-02-2026,12.99,Expense,Streaming Service
+05-02-2026,60.00,Expense,Gamer Bathwater
+05-02-2026,20.00,Expense,Pizza Delivery
+06-02-2026,22.40,Expense,Uber Ride
+06-02-2026,5.00,Expense,Church Donation
+07-02-2026,11.00,Expense,Burrito
+07-02-2026,25.00,Expense,Steam Wallet Funds
+08-02-2026,262.15,Income,Weekly Salary
+08-02-2026,45.00,Expense,Electricity Bill
+08-02-2026,12.00,Expense,Coffee Beans
+09-02-2026,5.00,Expense,Streamer Donation
+09-02-2026,3.00,Expense,App Store Gem Pack
+10-02-2026,89.99,Expense,Keyboard Switches
+10-02-2026,14.50,Expense,Dry Cleaning
+11-02-2026,18.50,Expense,Laundry Quarters
+11-02-2026,7.25,Expense,Breakfast Sandwich
+12-02-2026,29.95,Expense,Warframe heel pics (Set 2)
+12-02-2026,10.00,Expense,Subway Footlong
+13-02-2026,14.20,Expense,Copium Supplement
+13-02-2026,22.00,Expense,Movie Night
+14-02-2026,120.00,Expense,Valentine Dinner (Self)
+14-02-2026,15.00,Expense,Box of Chocolates
+15-02-2026,262.15,Income,Weekly Salary
+15-02-2026,30.00,Expense,Internet Bill
+15-02-2026,5.50,Expense,Parking Fee
+16-02-2026,1.99,Expense,WinRAR License
+16-02-2026,40.00,Expense,Gym Membership
+17-02-2026,55.00,Expense,New Sneakers
+17-02-2026,12.00,Expense,Lunch Special
 18-02-2026,29.95,Expense,Warframe heel pics
+18-02-2026,8.00,Expense,Milk and Eggs
+19-02-2026,12.00,Expense,Mobile Plan
+19-02-2026,25.00,Expense,Book on Financial Literacy
+20-02-2026,262.15,Income,Weekly Salary
+20-02-2026,50.00,Expense,Bar Tab
+21-02-2026,42.69,Expense,Nice
+21-02-2026,15.00,Expense,Cat Food
+22-02-2026,18.00,Expense,Cinema Ticket
+22-02-2026,34.00,Expense,Tank of Gas
+23-02-2026,7.50,Expense,Energy Drinks
+23-02-2026,12.00,Expense,Late Fee
+24-02-2026,150.00,Expense,Addiction Therapy
+24-02-2026,5.00,Expense,Vending Machine Soda
+25-02-2026,35.00,Expense,Water Bill
+25-02-2026,2.50,Expense,Cheap Pen
+26-02-2026,95.00,Expense,Market
+26-02-2026,10.00,Expense,Haircut
+27-02-2026,13.37,Expense,Leet Hacking Course
+27-02-2026,25.00,Expense,Takeout Chinese
+28-02-2026,40.00,Expense,Gas
+28-02-2026,20.00,Expense,Pizza Night
+28-02-2026,0.01,Income,Interest Earned
+28-02-2026,15.00,Expense,Cactus Plant
+01-02-2026,5.00,Expense,Gum
+02-02-2026,18.00,Expense,Used Manga
+04-02-2026,12.00,Expense,New Socks
+05-02-2026,3.00,Expense,Street Food
+06-02-2026,1.00,Expense,Wishing Well Coin
+09-02-2026,45.00,Expense,Random Hardware Store Trip
+10-02-2026,12.00,Expense,Spices
+12-02-2026,8.00,Expense,Batteries
+13-02-2026,22.50,Expense,T-Shirt
+15-02-2026,4.00,Expense,Bag of Ice
+17-02-2026,19.99,Expense,Indie Game
+19-02-2026,7.50,Expense,Donut Box
+21-02-2026,30.00,Expense,Oil Change
+23-02-2026,5.00,Expense,Bus Fare
+24-02-2026,11.11,Expense,Make a Wish
+25-02-2026,2.00,Expense,Postage Stamp
+26-02-2026,65.00,Expense,New Pillow
+27-02-2026,9.99,Expense,Cloud Storage
+28-02-2026,179.50,Income,Sold Old Monitor
