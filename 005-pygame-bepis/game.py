@@ -35,6 +35,11 @@ class Game:
         self.current_block.move(1, 0)
         if self.are_all_blocks_in_grid() == False:
             self.current_block.move(-1, 0)
+    
+    def rotate_block(self):
+        self.current_block.rotate()
+        if not self.are_all_blocks_in_grid():
+            self.current_block.undo_rotate()
 
     def are_all_blocks_in_grid(self):
         tiles = self.current_block.get_cell_positions()

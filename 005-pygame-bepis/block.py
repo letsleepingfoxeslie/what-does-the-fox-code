@@ -23,6 +23,15 @@ class Block:
         moved_tiles = [Position(tile.row + self.row_offset, tile.column + self.column_offset) for tile in current_tiles]
         return moved_tiles
 
+    def rotate(self):
+        self.rotation_state += 1
+        if self.rotation_state == len(self.cells):
+            self.rotation_state = 0
+    
+    def undo_rotate(self):
+        self.rotation_state -= 1
+        if self.rotation_state < 0:
+            self.rotation_state = len(self.cells) - 1
 
     def draw(self, screen):
         

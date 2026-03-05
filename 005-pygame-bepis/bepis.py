@@ -25,6 +25,8 @@ while True:
                 game.move_right()
             if event.key == pygame.K_DOWN:
                 game.move_down()
+            if event.key in [pygame.K_UP, pygame.K_z, pygame.K_q]:
+                game.rotate_block()
 
     # Drawing stuff?
     screen.fill((44, 44, 127))
