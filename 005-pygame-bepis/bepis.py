@@ -16,7 +16,8 @@ game_grid = Grid()
 #    game_grid.GRID[random.randint(0, 19)][random.randint(0, 9)] = random.randint(1, 6)
 # game_grid.print_grid()
 
-block = ZBlock()
+block = TBlock()
+
 
 # Game loop
 while True:
