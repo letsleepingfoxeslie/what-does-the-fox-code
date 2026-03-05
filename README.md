@@ -20,4 +20,5 @@ Will edit later. Not sure how to credit people, but w/e, we'll figure out as we 
 - [x] 3. [Code Guessing Game](003-code-guessing) -> [Tech With Tim](https://www.youtube.com/watch?v=sP-gFDreaQ4)
     - Something quick and kind of easy just to keep the ball rolling...
     - Thanks, Tim!
-- [ ] 4. [Personal Finance Tracker](004-finance-tracker) -> [Tech With Tim](https://www.youtube.com/watch?v=Dn1EjhcQk64)
+- [x] 4. [Personal Finance Tracker](004-finance-tracker) -> [Tech With Tim](https://www.youtube.com/watch?v=Dn1EjhcQk64)
+- [ ] 5. [Tetris Clone with pygame-ce](005-pygame-bepis) -> [Programming with Nick](https://www.youtube.com/watch?v=nF_crEtmpBo)
