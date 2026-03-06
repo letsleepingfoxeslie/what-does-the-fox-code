@@ -19,6 +19,36 @@ class Grid:
         if (row >= 0 and row < self.ROWS) and (column >= 0 and column < self.COLUMNS):
             return 
         return False
+    
+    def is_empty(self, row, column) -> bool:
+        return self.GRID[row][column] == 0
+
+    def is_row_full(self, row) -> bool:
+        for column in range(self.COLUMNS):
+            if self.GRID[row][column] == 0:
+                return False
+        return True
+    
+    def clear_row(self, row):
+        for column in range(self.COLUMNS):
+            self.GRID[row][column] = 0
+    
+    def move_row_down(self, row, amount):
+        for column in range(self.COLUMNS):
+            self.GRID[row + amount][column] = self.GRID[row][column]
+            self.GRID[row][column] = 0
+    
+    def clear_full_rows(self) -> int:
+        completed = 0
+
+        # Check every row in reverse order
+        for row in range(self.ROWS - 1, 0, -1):
+            if self.is_row_full(row):
+                self.clear_row(row)
+                completed += 1
+            elif completed > 0:
+                self.move_row_down(row, completed)
+        return completed
 
     def draw(self, screen):
         for row in range(self.ROWS):

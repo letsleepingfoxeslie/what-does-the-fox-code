@@ -10,6 +10,9 @@ pygame.display.set_caption("BEPIS")
 clock = pygame.time.Clock()
 game = Game()
 
+GAME_UPDATE = pygame.USEREVENT
+pygame.time.set_timer(GAME_UPDATE, 200)
+
 # Game loop
 while True:
     
@@ -27,6 +30,10 @@ while True:
                 game.move_down()
             if event.key in [pygame.K_UP, pygame.K_z, pygame.K_q]:
                 game.rotate_block()
+
+        # Custom event: every 200ms (by default... as of this commit)
+        if event.type == GAME_UPDATE:
+            game.move_down()
 
     # Drawing stuff?
     screen.fill((44, 44, 127))

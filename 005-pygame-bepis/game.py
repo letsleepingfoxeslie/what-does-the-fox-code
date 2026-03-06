@@ -23,18 +23,35 @@ class Game:
     
     def move_left(self):
         self.current_block.move(0, -1)
-        if self.are_all_blocks_in_grid() == False:
+        if self.are_all_blocks_in_grid() == False or self.does_block_fit() == False:
             self.current_block.move(0, 1)
     
     def move_right(self):
         self.current_block.move(0, 1)
-        if self.are_all_blocks_in_grid() == False:
+        if self.are_all_blocks_in_grid() == False or self.does_block_fit() == False:
             self.current_block.move(0, -1)
     
     def move_down(self):
         self.current_block.move(1, 0)
-        if self.are_all_blocks_in_grid() == False:
+        if self.are_all_blocks_in_grid() == False or self.does_block_fit() == False:
             self.current_block.move(-1, 0)
+            self.lock_block()
+    
+    def lock_block(self):
+        tiles = self.current_block.get_cell_positions()
+        for position in tiles:
+            self.grid.GRID[position.row][position.column] = self.current_block.id
+
+        self.current_block = self.next_block
+        self.next_block = self.get_random_block()
+        self.grid.clear_full_rows()
+
+    def does_block_fit(self):
+        tiles = self.current_block.get_cell_positions()
+        for tile in tiles:
+            if not self.grid.is_empty(tile.row, tile.column):
+                return False
+        return True
     
     def rotate_block(self):
         self.current_block.rotate()
