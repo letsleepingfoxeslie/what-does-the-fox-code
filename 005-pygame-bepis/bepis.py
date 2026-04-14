@@ -22,17 +22,20 @@ while True:
             pygame.quit()
             sys.exit()
         if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_LEFT:
+            if game.is_game_over:
+                game.is_game_over = False
+                game.reset()
+            if event.key == pygame.K_LEFT and not game.is_game_over:
                 game.move_left()
-            if event.key == pygame.K_RIGHT:
+            if event.key == pygame.K_RIGHT and not game.is_game_over:
                 game.move_right()
-            if event.key == pygame.K_DOWN:
+            if event.key == pygame.K_DOWN and not game.is_game_over:
                 game.move_down()
-            if event.key in [pygame.K_UP, pygame.K_z, pygame.K_q]:
+            if event.key in [pygame.K_UP, pygame.K_z, pygame.K_q] and not game.is_game_over:
                 game.rotate_block()
 
         # Custom event: every 200ms (by default... as of this commit)
-        if event.type == GAME_UPDATE:
+        if event.type == GAME_UPDATE and not game.is_game_over:
             game.move_down()
 
     # Drawing stuff?
